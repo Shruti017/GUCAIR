@@ -1,0 +1,6 @@
+export const WEIGHTS:Record<string,number>={infrastructure:15,ai_education:15,faculty:15,students:15,research:15,governance:10,industry:10,digital_transformation:5};
+export function readinessLevel(score:number){if(score<=20)return 'Emerging';if(score<=40)return 'Developing';if(score<=60)return 'Established';if(score<=80)return 'Advanced';return 'AI Leader';}
+export function calculateResult(dimensions:any[],answers:any[]){
+ const dimensionScores=dimensions.map(d=>{const qs=d.questions.filter((q:any)=>q.required);const scored=qs.map((q:any)=>answers.find(a=>String(a.questionId)===String(q._id))).filter((a:any)=>a&&typeof a.score==='number');const score=scored.length?scored.reduce((s:number,a:any)=>s+a.score,0)/scored.length:0;return {dimensionId:d._id,key:d.key,name:d.name,score:Number(score.toFixed(2)),weight:d.weight,answered:scored.length,required:qs.length};});
+ const complete=dimensionScores.every(d=>d.answered===d.required);const weightTotal=dimensionScores.reduce((s,d)=>s+d.weight,0);const overall=weightTotal?dimensionScores.reduce((s,d)=>s+d.score*d.weight,0)/weightTotal:0;return {complete,overallScore:Number(overall.toFixed(2)),readinessLevel:readinessLevel(overall),dimensionScores};
+}

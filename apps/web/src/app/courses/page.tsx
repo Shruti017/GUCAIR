@@ -1,0 +1,1 @@
+import ContentLibrary from '@/components/ContentLibrary';export default function Page(){return <ContentLibrary type="course" title="AI courses and learning" subtitle="Discover AI learning opportunities, training resources and educational programs shared by the GUCAIR community."/>}

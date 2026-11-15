@@ -1,0 +1,1 @@
+import ContentLibrary from '@/components/ContentLibrary';export default function Page(){return <ContentLibrary type="partnership" title="Industry partnerships" subtitle="Discover university-industry collaborations, applied AI projects and partnership opportunities."/>}

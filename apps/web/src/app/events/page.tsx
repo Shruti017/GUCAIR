@@ -1,0 +1,1 @@
+import ContentLibrary from '@/components/ContentLibrary';export default function Page(){return <ContentLibrary type="event" title="Events and announcements" subtitle="Find conferences, workshops, training sessions and updates from the GUCAIR network."/>}

@@ -1,0 +1,1 @@
+import ContentLibrary from '@/components/ContentLibrary';export default function Page(){return <ContentLibrary type="research" title="Research hub" subtitle="Explore AI research, publications, projects and opportunities for academic collaboration."/>}
