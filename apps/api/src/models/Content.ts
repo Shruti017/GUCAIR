@@ -1,3 +1,0 @@
-import {Schema,model} from 'mongoose';
-const schema=new Schema({type:{type:String,enum:['course','research','partnership','event','news'],required:true,index:true},title:{type:String,required:true},summary:{type:String,default:''},body:{type:String,default:''},url:{type:String,default:''},country:{type:String,default:''},university:{type:Schema.Types.ObjectId,ref:'University'},status:{type:String,enum:['draft','published'],default:'draft',index:true},createdBy:{type:Schema.Types.ObjectId,ref:'User'}},{timestamps:true});
-schema.index({title:'text',summary:'text',body:'text'}); export default model('Content',schema);
